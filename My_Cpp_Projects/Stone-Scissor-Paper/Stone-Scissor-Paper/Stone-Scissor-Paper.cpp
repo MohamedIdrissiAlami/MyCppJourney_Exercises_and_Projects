@@ -89,6 +89,7 @@ stGameResult RunGame()
 stRoundInfo PlayRound(short RoundNumber)
 {
 	stRoundInfo RoundInfo;
+	system("cls");//clear screen
 	cout << "\n" << left << setw(15) << "" << "******************** round [" << (RoundInfo.RoundNumber = RoundNumber) << "] ********************";
 	RoundInfo.PlayerChoice = ReadPlayerChoice(), RoundInfo.ComputerChoice = (enGameChoice)RandomNumber(1, 3);
 	RoundInfo.RoundWinner = WhoWonTheRound(RoundInfo.PlayerChoice, RoundInfo.ComputerChoice);
@@ -100,6 +101,8 @@ stRoundInfo PlayRound(short RoundNumber)
 	SetWinnerScreenColor(RoundInfo.RoundWinner);
 
 	cout << "\n" << left << setw(15) << "" << "*************************************************************\n";
+	cout << "\n" << left << setw(15) << "" << "round ends! press any key to continue..";
+	system("pause>0");
 	return RoundInfo;
 }
 void SetWinnerScreenColor(enWinner Winner)
@@ -114,7 +117,7 @@ void SetWinnerScreenColor(enWinner Winner)
 		cout << "\a";//sound a bill
 		break;
 	case enNoWinner:
-		system("color 0e");//set screen color to yellow
+		system("color 06");//set screen color to yellow
 		break;
 	default:
 		break;
