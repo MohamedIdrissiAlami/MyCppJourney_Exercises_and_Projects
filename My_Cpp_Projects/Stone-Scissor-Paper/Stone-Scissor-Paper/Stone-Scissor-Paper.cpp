@@ -22,6 +22,14 @@ struct stRoundInfo
 	enWinner RoundWinner;
 };
 
+template<typename T>
+T ReadNumber(string);
+template<typename T>
+T ReadPositiveNumber(string);
+template <typename T>
+T ReadNumberBetween(short, short, string);
+short RandomNumber(short, short);
+
 
 void StartGame();
 void ResetScreen();
@@ -34,29 +42,12 @@ string ChoiceName(enGameChoice );
 enGameChoice ReadPlayerChoice();
 void ShowFinalGameResults(stGameResult );
 void ShowGameOverScreen();
-template<typename T>
-T ReadNumber(string);
-template<typename T>
-T ReadPositiveNumber(string);
-template <typename T>
-T ReadNumberBetween(short, short, string);
-short RandomNumber(short, short);
 int main()
 {
 	srand((unsigned)time(NULL));
 	StartGame();
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 void StartGame()
@@ -166,7 +157,6 @@ enGameChoice ReadPlayerChoice()
 	cout << "\n" << setw(15) << "";
 	return (enGameChoice)ReadNumberBetween<short>(1, 3, "Your Choice : [1] stone,[2] scissor,[3] paper ? ");
 }
-
 void ShowFinalGameResults(stGameResult GameResult)
 {
 	cout << "\n" << left << setw(15) << "" << "******************** G A M E  R E S U L T ********************";
@@ -193,7 +183,6 @@ void ShowGameOverScreen()
 
 }
 
-
 template<typename T>
 T ReadNumber(string Message = "")
 {
@@ -209,7 +198,6 @@ T ReadNumber(string Message = "")
 	}
 	return Number;
 }
-
 template <typename T>
 T ReadPositiveNumber(string Message = "\nEnter a positive Number : ")
 {
@@ -220,7 +208,6 @@ T ReadPositiveNumber(string Message = "\nEnter a positive Number : ")
 	}
 	return Number;
 }
-
 template <typename T>
 T ReadNumberBetween(short From, short To, string Message = "")
 {
@@ -233,8 +220,6 @@ T ReadNumberBetween(short From, short To, string Message = "")
 	} while (Number<From || Number>To);
 	return Number;
 }
-
-
 short RandomNumber(short From, short To)
 {
 	return rand() % (To - From) + From;
