@@ -169,6 +169,17 @@ stGameResult RunGame()
 	return GameResult;
 }
 
+void ShowGameOverScreen()
+{
+	system("cls");//clear screen
+	system("color 0f");//set screen to default
+	cout << "\n\n\n\n\n" << left << setw(10) << "" << "***********************************************************************\n";
+	cout << "\n\n" << left << setw(35) <<"" << "G A M E  O V E R" << "\n\n";
+	cout << "\n" << left << setw(10) << "" << "***********************************************************************\n\n\n";
+
+
+}
+
 void StartGame()
 {
 	char Answer = 'Y';
@@ -176,8 +187,8 @@ void StartGame()
 	{
 		ResetScreen();
 		stGameResult GameResult = RunGame();
-		//ShowGameOverScreen();
-		//ShowFinanlGameResults(GameResult);
+		ShowGameOverScreen();
+		//ShowFinalGameResults(GameResult);
 		cout << "\nDo you wanna play again ? [Y/N] ";
 		cin >> Answer;
 	} while (toupper(Answer) == 'Y');
