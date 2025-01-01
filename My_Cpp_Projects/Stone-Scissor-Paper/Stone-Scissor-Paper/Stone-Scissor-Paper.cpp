@@ -139,13 +139,13 @@ stRoundInfo PlayRound(short RoundNumber)
 	stRoundInfo RoundInfo;
 	cout << "\n" << left << setw(15) << "" << "******************** round [" <<( RoundInfo.RoundNumber= RoundNumber) << "] ********************";
 	RoundInfo.PlayerChoice = ReadPlayerChoice(), RoundInfo.ComputerChoice = (enGameChoice)RandomNumber(1,3);
-	enWinner RoundWinner= WhoWonTheRound(RoundInfo.PlayerChoice, RoundInfo.ComputerChoice);
+	RoundInfo.RoundWinner= WhoWonTheRound(RoundInfo.PlayerChoice, RoundInfo.ComputerChoice);
 
 	cout << "\n" << left << setw(15) << "" << "Round [" << RoundInfo.RoundNumber << "] begins..";
 	cout <<"\n"<<left<<setw(15)<<"" << "\tPlayer choice  : " << ChoiceName(RoundInfo.PlayerChoice);
 	cout << "\n" << left << setw(15) << "" << "\tComputer choice  : " << ChoiceName(RoundInfo.ComputerChoice);
-	cout << "\n" << left << setw(15) << "" << "\tRound Winner : " << WinnerName(RoundWinner);
-	SetWinnerScreenColor(RoundWinner);
+	cout << "\n" << left << setw(15) << "" << "\tRound Winner : " << WinnerName(RoundInfo.RoundWinner);
+	SetWinnerScreenColor(RoundInfo.RoundWinner);
 
 	cout << "\n" << left << setw(15) << "" << "*************************************************************\n";
 	return RoundInfo;
@@ -180,6 +180,22 @@ void ShowGameOverScreen()
 
 }
 
+void ShowFinalGameResults(stGameResult GameResult)
+{
+	cout << "\n" << left << setw(15) << "" << "******************** G A M E  R E S U L T ********************";
+	cout << "\n" << left << setw(15) << "" << "Game rounds : " << GameResult.GameRounds;
+	cout << "\n" << left << setw(15) << "" << "Player won times : " << GameResult.PlayerWonTimes;
+	cout << "\n" << left << setw(15) << "" << "Computer won times : " << GameResult.ComputerWonTimes;
+	cout << "\n" << left << setw(15) << "" << "Draw Times : " << GameResult.DrawTimes;
+	cout << "\n" << left << setw(15) << "" << "final winner : " << "\'"<<WinnerName(GameResult.FinalWinner)<<"\'";
+
+	cout << "\n" << left << setw(15) << "" << "***************************************************************\n\n\n";
+
+	cout << "\npress any key...";
+	system("pause>0");
+
+}
+
 void StartGame()
 {
 	char Answer = 'Y';
@@ -188,7 +204,7 @@ void StartGame()
 		ResetScreen();
 		stGameResult GameResult = RunGame();
 		ShowGameOverScreen();
-		//ShowFinalGameResults(GameResult);
+		ShowFinalGameResults(GameResult);
 		cout << "\nDo you wanna play again ? [Y/N] ";
 		cin >> Answer;
 	} while (toupper(Answer) == 'Y');
