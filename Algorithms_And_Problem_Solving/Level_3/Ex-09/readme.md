@@ -7,7 +7,7 @@ Matrix 1 :
 10 03 02  
 06 03 09  
 
-Middle row of matrix 1 is :  
+Middle col of matrix 1 is :  
 10 03 02
 middle row of matrix 1 is :  
 10 03 03

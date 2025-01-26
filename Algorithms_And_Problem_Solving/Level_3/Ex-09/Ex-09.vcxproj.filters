@@ -17,4 +17,9 @@
   <ItemGroup>
     <None Include="readme.md" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ex-09.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
