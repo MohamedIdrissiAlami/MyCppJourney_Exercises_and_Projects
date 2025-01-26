@@ -43,6 +43,8 @@ void MultiplyTwo3x3Matrixes(short arr1[3][3], short arr2[3][3],short arrMultiply
 
 int main()
 {
+	//seeds the random numbers generator in C++,called only once 
+	srand((unsigned)time(NULL));
 	short arr1[3][3], arr2[3][3], arrMultiply[3][3];
 	Fill3x3MatrixWithRandomNumbers(arr1, 3, 3);
 	cout << "\nMatrix1 : \n";
